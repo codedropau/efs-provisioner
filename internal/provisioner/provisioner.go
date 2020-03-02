@@ -20,7 +20,8 @@ type Provisioner struct {
 
 // Params required for provisioning volumes.
 type Params struct {
-	Region        string   `default:"ap-southeast-2"`
+	// Use the same region as the AWS client.
+	Region        string   `envconfig:"AWS_REGION" default:"ap-southeast-2"`
 	Format        string   `default:"{{ .PVC.ObjectMeta.Namespace }}-{{ .PVName }}"`
 	Performance   string   `default:"generalPurpose"`
 	SecurityGroup string   `required:"true"`
