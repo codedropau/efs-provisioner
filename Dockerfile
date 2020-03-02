@@ -1,4 +1,4 @@
-FROM golang:1.13
+FROM golang:1.13 as build
 ENV GO111MODULE=on
 ADD . /go/src/github.com/codedropau/efs-provisioner
 WORKDIR /go/src/github.com/codedropau/efs-provisioner
@@ -7,5 +7,6 @@ RUN make build
 
 FROM alpine:latest
 RUN apk --no-cache add ca-certificates
-COPY --from=0 /go/src/github.com/codedropau/efs-provisioner/bin/efs-provisioner_linux_amd64 /usr/local/bin/efs-provisioner
+COPY --from=build /go/src/github.com/codedropau/efs-provisioner/bin/efs-provisioner_linux_amd64 /usr/local/bin/efs-provisioner
+COPY --from=build /go/src/github.com/codedropau/efs-provisioner/bin/mount-reaper_linux_amd64 /usr/local/bin/mount-reaper
 CMD ["efs-provisioner"]
