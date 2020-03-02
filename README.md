@@ -1,7 +1,7 @@
 Kubernetes - Storage Class - AWS EFS
 ====================================
 
-[![CircleCI](https://circleci.com/gh/previousnext/k8s-aws-efs.svg?style=svg)](https://circleci.com/gh/previousnext/k8s-aws-efs)
+[![CircleCI](https://circleci.com/gh/codedropau/efs-provisioner.svg?style=svg)](https://circleci.com/gh/codedropau/efs-provisioner)
 
 **Maintainer**: Nick Schuch
 
@@ -52,8 +52,8 @@ spec:
         app: aws-efs-provisioner
     spec:
       containers:
-        - name: aws-efs-provisioner
-          image: previousnext/k8s-aws-efs:2.0.0
+        - name: provisioner
+          image: coderdropau/efs-provisioner:latest
           env:
             - name:  EFS_PERFORMANCE
               value: "generalPurpose"
