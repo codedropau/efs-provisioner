@@ -11,6 +11,7 @@ require (
 	github.com/prometheus/common v0.8.0
 	github.com/shirou/gopsutil v2.19.12+incompatible
 	github.com/stretchr/testify v1.4.0
+	gopkg.in/alecthomas/kingpin.v2 v2.2.6
 	k8s.io/api v0.17.0
 	k8s.io/apimachinery v0.17.0
 	k8s.io/client-go v0.0.0-20200113233857-bcaa73156d59
